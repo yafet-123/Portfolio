@@ -1,5 +1,5 @@
 {
-  "name": "Helen Zeray Portfolio",
+  "name": "Helen-Zeray-Portfolio",
   "description": "Helen Zeray Portfolio Website",
   "homepage": "https://www.helenzeray.com/",
   "version": "0.1.0",
@@ -38,10 +38,10 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.14",
     "eslint": "8.26.0",
     "eslint-config-next": "12.3.1",
     "postcss": "^8.4.27",
-    "tailwindcss": "^3.2.1"
+    "tailwindcss": "^3.3.3"
   }
 }
