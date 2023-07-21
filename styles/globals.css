@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bio-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/image1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.hero-background-one {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/image6.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-background-two {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/image2.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-background-three {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/image3.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-background-four {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/image4.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-background-five {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/image5.png');
+  background-size: cover;
+  background-position: center;
+}
