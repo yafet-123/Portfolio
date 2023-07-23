@@ -1,68 +1,23 @@
 import Image from "next/image";
-import type { Metadata } from "next";
 import BarChart from "@/components/Admin/Home/BarChart";
 
-export const metadata: Metadata = {
-  title: 'Admin Home',
-}
+export async function getServerSideProps(context){
+  const excounts = await prisma.Exhibition.count()
+  const necounts = await prisma.news.count()
+  const uscounts = await prisma.User.count()
+  const wocounts = await prisma.SelectedWorks.count()
 
-async function fetchExhibitionsCount() {
-  const data = await fetch(
-    process.env.URL + '/api/Exhibitions/Count',
-    {   
-      next: {
-        revalidate: 60,
-      },
+  return{
+    props:{
+      exhibitioncount:JSON.parse(JSON.stringify(excounts)),
+      newscount:JSON.parse(JSON.stringify(necounts)),
+      usercount:JSON.parse(JSON.stringify(uscounts)),
+      Workcount:JSON.parse(JSON.stringify(wocounts)),
     }
-  );
-  const exhibitions = await data.json();
-  return exhibitions;
+  }
 }
 
-async function fetchuserCount() {
-  const data = await fetch(
-    process.env.URL + '/api/User/Count',
-    {   
-      next: {
-        revalidate: 60,
-      },
-    }
-  );
-  const users = await data.json();
-  return users;
-}
-
-async function fetchnewsCount() {
-  const data = await fetch(
-    process.env.URL + '/api/News/Count',
-    {   
-      next: {
-        revalidate: 60,
-      },
-    }
-  );
-  const news = await data.json();
-  return news;
-}
-
-async function fetchWorkCount() {
-  const data = await fetch(
-    process.env.URL + '/api/Works/Count',
-    {   
-      next: {
-        revalidate: 60,
-      },
-    }
-  );
-  const works = await data.json();
-  return works;
-}
-
-export default async function AdminHome() {
-  const exhibitioncount = await fetchExhibitionsCount();
-  const Workcount = await fetchWorkCount();
-  const usercount = await fetchuserCount();
-  const newscount = await fetchnewsCount();
+export default async function AdminHome({exhibitioncount,newscount,usercount,Workcount}) {
   return (
     <section className="mt-32 flex flex-col w-full h-full">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 lg:px-10">

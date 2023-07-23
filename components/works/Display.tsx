@@ -18,7 +18,7 @@ export function Display({ work }) {
       <div className="w-full !h-[30rem] relative justify-self-center mb-5 lg:mb-0">
         <Image
           src={work.Image}
-          fill
+          layout="fill"
           className="w-full !h-full"
           alt="latest news image"
         />
