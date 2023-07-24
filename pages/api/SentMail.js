@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
-export const POST = async (req, res) => {
-  const { name, email, phone, message } = await req.json();
+export default async function SentMail (req, res){
+  const { name, email, phone, message } = req.body;
 
   // Create a Nodemailer transporter
   console.log("name");
@@ -16,7 +16,7 @@ export const POST = async (req, res) => {
   // Define the email options
   const mailOptions = {
     from: "addisuyafet321@gmail.com",
-    to: "meetnatnaelkebede@gmail.com",
+    to: "yafetaddisu123@gmail.com",
     subject: "New Contact Form Submission",
     text: `Name: ${name} \nEmail: ${email} \nphone: ${phone} \nMessage: ${message}`,
   };
@@ -24,12 +24,8 @@ export const POST = async (req, res) => {
   try {
     // Send the email
     await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify("Email Sent Succesfully"), {
-      status: 200,
-    });
+    res.json("Email Sent Succesfully")
   } catch (error) {
-    return new Response(JSON.stringify("Failed to send email"), {
-      status: 200,
-    });
+    res.json("Failed to send email")
   }
 };

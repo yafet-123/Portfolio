@@ -7,6 +7,7 @@ import {
   BsInstagram,
   BsTwitter,
 } from "react-icons/bs";
+import axios from 'axios';
 import Link from "next/link";
 import ReactModal from "react-modal";
 import { usePathname, useRouter } from "next/router";
@@ -67,25 +68,18 @@ export const ContactForm = () => {
   const handleSubmit = async (values) => {
     console.log(values);
     try {
-      const response = await fetch("/api/SentMail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          message: values.message,
-        }),
-      });
-      console.log(response.ok);
-      if (response.ok) {
+      const data = await axios.post(`../api/SentMail`,{
+        "name": values.name,
+        "email": values.email,
+        "phone": values.phone,
+        "message": values.message
+      }).then(function (response) {
+        console.log(response.data);
         setModalIsOpen(true);
-        router.push("/contact");
-      } else {
+      }).catch(function (error) {
         setModalIsOpenone(true);
-      }
+        setLoading(false)
+      });
     } catch (error) {
       console.error("Error:", error);
     }
@@ -94,7 +88,7 @@ export const ContactForm = () => {
   const closeModal = () => {
     setModalIsOpen(false);
     console.log("contact");
-    router.push("/");
+    router.reload()
   };
 
   const closeModalone = () => {
@@ -121,7 +115,7 @@ export const ContactForm = () => {
         <div className="flex gap-4">
           {socialMediaLinks.map((paths, index) => {
             return (
-              <Link key={index} href={paths.path} target="_blank">
+              <Link key={index} href={paths.id} target="_blank">
                 {paths.path}
               </Link>
             );
