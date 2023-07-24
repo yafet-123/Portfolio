@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {BsFacebook, BsYoutube, BsLinkedin, BsInstagram, BsTwitter} from 'react-icons/bs'
+import {
+  BsFacebook,
+  BsYoutube,
+  BsLinkedin,
+  BsInstagram,
+  BsTwitter,
+} from "react-icons/bs";
 import Link from "next/link";
-import ReactModal from 'react-modal';
-import { usePathname, useRouter } from "next/navigation";
+import ReactModal from "react-modal";
+import { usePathname, useRouter } from "next/router";
 
 const initialValues = {
   name: "",
@@ -16,11 +22,11 @@ const validateForm = (values) => {
   const errors = {};
   const MAX_TEXT_LENGTH = 100;
   const Name = values.name;
-  console.log(Name.length)
+  console.log(Name.length);
 
   if (Name.length > MAX_TEXT_LENGTH) {
     errors.name = `Name must be ${MAX_TEXT_LENGTH} characters or less`;
-    console.log(errors.name)
+    console.log(errors.name);
   }
 
   if (!values.name) {
@@ -44,47 +50,51 @@ const validateForm = (values) => {
   return errors;
 };
 
-
 export const ContactForm = () => {
   const router = useRouter();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalIsOpenone, setModalIsOpenone] = useState(false);
   const socialMediaLinks = [
-    {id:"https://www.linkedin.com/in/helen-zeray-789b89267",path:<BsLinkedin size={30} color="black"/>},
-    {id:"https://instagram.com/helenzeray1?igshid=ZGUzMzM3NWJiOQ==",path:<BsInstagram size={30} color="black"/>},
-  ]
+    {
+      id: "https://www.linkedin.com/in/helen-zeray-789b89267",
+      path: <BsLinkedin size={30} color="black" />,
+    },
+    {
+      id: "https://instagram.com/helenzeray1?igshid=ZGUzMzM3NWJiOQ==",
+      path: <BsInstagram size={30} color="black" />,
+    },
+  ];
   const handleSubmit = async (values) => {
-    console.log(values)
-    // Handle form submission logic her
+    console.log(values);
     try {
-      const response = await fetch('/api/SentMail', {
-        method: 'POST',
+      const response = await fetch("/api/SentMail", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
-          name:values.name, 
-          email:values.email,
-          phone:values.phone,
-          message:values.message
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
         }),
       });
-      console.log(response.ok)
+      console.log(response.ok);
       if (response.ok) {
-        setModalIsOpen(true)    
-        router.push("/contact")   
+        setModalIsOpen(true);
+        router.push("/contact");
       } else {
-        setModalIsOpenone(true)
+        setModalIsOpenone(true);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   const closeModal = () => {
     setModalIsOpen(false);
-    console.log("contact")
-    router.push("/")
+    console.log("contact");
+    router.push("/");
   };
 
   const closeModalone = () => {
@@ -97,9 +107,15 @@ export const ContactForm = () => {
           Contact
         </h1>
         <div className="font-poppins text-left text-[#010101]">
-          <p className="font-normal text-xl lg:text-2xl mb-5">helenzersy8905@gmail.com </p>
-          <p className="font-normal text-xl lg:text-2xl mb-5">Sderot hachmel Israel 32</p>
-          <p className="font-normal text-xl lg:text-2xl mb-5">WhatsApp: +9725353323525</p>
+          <p className="font-normal text-xl lg:text-2xl mb-5">
+            helenzersy8905@gmail.com{" "}
+          </p>
+          <p className="font-normal text-xl lg:text-2xl mb-5">
+            Sderot hachmel Israel 32
+          </p>
+          <p className="font-normal text-xl lg:text-2xl mb-5">
+            WhatsApp: +9725353323525
+          </p>
         </div>
 
         <div className="flex gap-4">
@@ -118,8 +134,13 @@ export const ContactForm = () => {
         onSubmit={handleSubmit}
       >
         {({ handleSubmit }) => (
-        <form className="flex flex-col px-2 lg:px-10 w-full" onSubmit={handleSubmit} >
-            <h3 className="font-poppins text-left text-[#010101] font-bold text-4xl lg:tetx-6xl mb-5">Enquiry form</h3>
+          <form
+            className="flex flex-col px-2 lg:px-10 w-full"
+            onSubmit={handleSubmit}
+          >
+            <h3 className="font-poppins text-left text-[#010101] font-bold text-4xl lg:tetx-6xl mb-5">
+              Enquiry form
+            </h3>
 
             <div className="mb-4">
               <label htmlFor="name" className="block mb-1">
@@ -200,7 +221,7 @@ export const ContactForm = () => {
             >
               Submit
             </button>
-        </form>
+          </form>
         )}
       </Formik>
 
@@ -212,8 +233,13 @@ export const ContactForm = () => {
       >
         {/* Add your modal content here */}
         <div className="flex flex-col items-center justify-center bg-[#F7F7F7] w-[350px] h-[200px] p-2 border rounded-sm ">
-          <p  className="text-md lg:text-xl mb-5 text-center">Your Enquiry form Submitted Successfully.</p>
-          <button onClick={closeModal} className="p-2 bg-[#17c294] border text-white rounded-sm">
+          <p className="text-md lg:text-xl mb-5 text-center">
+            Your Enquiry form Submitted Successfully.
+          </p>
+          <button
+            onClick={closeModal}
+            className="p-2 bg-[#17c294] border text-white rounded-sm"
+          >
             Close
           </button>
         </div>
@@ -227,11 +253,17 @@ export const ContactForm = () => {
       >
         {/* Add your modal content here */}
         <div className="flex flex-col items-center justify-center bg-[#F7F7F7] w-[350px] h-[200px] p-2 border rounded-sm ">
-          <p  className="text-md lg:text-xl mb-5 text-center">Your Enquiry form Submitted un Successfull.  Please retry again.</p>
-          <button onClick={closeModalone} className="p-2 bg-[#17c294] border text-white rounded-sm">Close</button>
+          <p className="text-md lg:text-xl mb-5 text-center">
+            Your Enquiry form Submitted un Successfull. Please retry again.
+          </p>
+          <button
+            onClick={closeModalone}
+            className="p-2 bg-[#17c294] border text-white rounded-sm"
+          >
+            Close
+          </button>
         </div>
       </ReactModal>
     </div>
   );
 };
-

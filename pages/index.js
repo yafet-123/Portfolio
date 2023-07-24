@@ -1,7 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { MainHeader } from '../components/common/MainHeader';
-import {HeroSection} from '../components/Home/HeroSection';
+import { MainHeader } from "../components/common/MainHeader";
+import { HeroSection } from "../components/home/HeroSection";
 
 export default function Home() {
   return (
@@ -9,5 +7,5 @@ export default function Home() {
       <MainHeader title="Helen Zeray : Home" />
       <HeroSection />
     </div>
-  )
+  );
 }

@@ -4,7 +4,7 @@ import Profile from "../../public/person1.jpg";
 export const Hero = () => {
   return (
     <div className="flex flex-col-reverse lg:flex-row">
-      <p className="flex flex-col font-sans font-extralight text-[1.45rem] leading-[3.1rem] text-left text-[#010101] w-full lg:w-[55%] mt-10 lg:mt-0">
+      <p className="flex flex-col font-light text-xl md:text-2xl md:leading-10 text-left text-[#010101] w-full lg:w-[55%]">
         <span className="">{`Helen Zeray's artistic journey is one that is filled with wonder and admiration for the beauty of nature.
         Growing up in Addis Abeba, Ethiopia, she was captivated by the artistry of the world around her, which led her to pursue her passion for the arts through private classes in her youth.
         With a heart full of awe and reverence for the natural world, Helen creates stunning works of art that amplify the shapes, colors, and movements of the landscape. 
@@ -27,4 +27,3 @@ export const Hero = () => {
     </div>
   );
 };
-

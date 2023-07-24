@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import React from 'react';
+import Head from "next/head";
+import React from "react";
 
 export const MainHeader = ({ title }) => {
   return (
@@ -18,7 +18,7 @@ export const MainHeader = ({ title }) => {
           property="og:description"
           content="Helen Zeray's artistic journey is one that is filled with wonder and admiration for the beauty of nature."
         />
-        <meta property="og:image" content="/public/logo.png" />
+        <meta property="og:image" content="/public/favicon.ico" />
         <meta property="og:url" content="https://helenzeray.com" />
         <meta property="og:type" content="website" />
 
@@ -31,13 +31,13 @@ export const MainHeader = ({ title }) => {
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="../../public/favicon-32x32.png"
+          href="/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="../../public/favicon-16x16.png"
+          href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
