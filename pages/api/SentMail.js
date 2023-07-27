@@ -16,7 +16,7 @@ export default async function SentMail (req, res){
   // Define the email options
   const mailOptions = {
     from: "addisuyafet321@gmail.com",
-    to: "yafetaddisu123@gmail.com",
+    to: "meetnatnaelkebede@gmail.com",
     subject: "New Contact Form Submission",
     text: `Name: ${name} \nEmail: ${email} \nphone: ${phone} \nMessage: ${message}`,
   };
