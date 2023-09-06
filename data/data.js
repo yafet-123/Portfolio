@@ -69,6 +69,55 @@ export const SelectedWorksData = [
     image:
       "https://res.cloudinary.com/df7hlpjcj/image/upload/v1687270598/Portfolio/1684064940757_fac5j1.png",
   },
+  {
+    id: 11,
+    title: "Untitled",
+    description: "34cm × 48cm Acrylic on paper",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997287/20230906_110512_kbfuib.jpg",
+  },
+  {
+    id: 12,
+    title: "Untitled",
+    description: "34cm ×48cm Acrylic on paper",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997302/20230906_110343_biffqa.jpg",
+  },
+  {
+    id: 13,
+    title: "Untitled",
+    description: "34cm × 48cm",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997284/20230906_110232_ouumnk.jpg",
+  },
+  {
+    id: 14,
+    title: "Winter",
+    description: "100cm ×100cm Acrylic on canvas.",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997315/IMG_20230905_111618_295_np8k5j.jpg",
+  },
+  {
+    id: 15,
+    title: "Untiteld",
+    description: "100cm × 100cm Acrylic on canvas",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997297/20230905_105109_dcqzpi.jpg",
+  },
+  {
+    id: 16,
+    title: "Summer02",
+    description: "100cm ×100cm Acrylic on canvas.",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997308/20230905_105511_jjst0v.jpg",
+  },
+  {
+    id: 17,
+    title: "Summer",
+    description: "50cm × 50cm Acrylic on canvas",
+    image:
+      "https://res.cloudinary.com/df7hlpjcj/image/upload/v1693997306/20230905_105338_lmrtze.jpg",
+  },
 ];
 
 export const NewsData = [
